@@ -1,0 +1,72 @@
+---
+import { site, whatsappLink } from "../config/site";
+---
+
+<header class="hdr">
+  <div class="wrap hdr-inner">
+    <a href="/" class="brand" aria-label={site.nombre}>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <rect x="2.5" y="5" width="19" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M3 7l9 6 9-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M15.5 15.5l2 2 3.5-3.5" stroke="var(--teal)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="brand-txt">recuperar<strong>correos</strong></span>
+    </a>
+
+    <nav class="nav" aria-label="Principal">
+      <a href="#escenarios">Casos</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#confianza">Confianza</a>
+    </nav>
+
+    <a href={whatsappLink} class="btn btn-primary hdr-cta" target="_blank" rel="noopener">
+      Diagnóstico gratis
+    </a>
+  </div>
+</header>
+
+<style>
+  .hdr {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: saturate(1.4) blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .hdr-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    height: 64px;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: var(--ink);
+  }
+  .brand-txt {
+    font-family: var(--font-mono);
+    font-size: 0.98rem;
+    letter-spacing: -0.02em;
+    color: var(--slate);
+  }
+  .brand-txt strong { color: var(--ink); font-weight: 600; }
+  .nav {
+    display: flex;
+    gap: 1.6rem;
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--slate);
+  }
+  .nav a:hover { color: var(--ink); }
+  .hdr-cta { padding: 0.6rem 1.05rem; }
+
+  @media (max-width: 760px) {
+    .nav { display: none; }
+    .hdr-cta { font-size: 0.88rem; padding: 0.55rem 0.9rem; }
+  }
+</style>

@@ -1,0 +1,102 @@
+---
+import { whatsappLink } from "../config/site";
+---
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">Rescate de correo · Santiago</span>
+      <h1>El correo que creías perdido casi siempre sigue ahí.</h1>
+      <p class="lead">
+        Recuperamos años de correspondencia atrapada en archivos
+        <span class="mono">.ost</span> huérfanos, buzones borrados,
+        <span class="mono">.pst</span> corruptos y migraciones a Microsoft 365
+        que salieron mal. Lo hacemos nosotros, en persona y bajo reserva —
+        no un software que instalas a ciegas.
+      </p>
+
+      <div class="hero-cta">
+        <a href={whatsappLink} class="btn btn-primary btn-lg" target="_blank" rel="noopener">
+          Cuéntame tu caso
+        </a>
+        <a href="#proceso" class="btn btn-ghost btn-lg">Cómo funciona</a>
+      </div>
+
+      <ul class="trust-strip">
+        <li class="chip">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Confidencial · con acuerdo de reserva
+        </li>
+        <li class="chip">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          17 años en TI corporativa
+        </li>
+        <li class="chip">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Diagnóstico sin costo
+        </li>
+      </ul>
+    </div>
+
+    <!-- Firma: registro de restauración -->
+    <div class="hero-visual" aria-hidden="true">
+      <div class="log">
+        <div class="log-head">
+          <span class="log-dot"></span>
+          registro de recuperación
+        </div>
+        <div class="log-body">
+          <div class="log-row" style="animation-delay:.05s">
+            <span class="lbl">archivo</span><span class="fill"></span><span class="val">outlook.ost · 14.2 GB</span>
+          </div>
+          <div class="log-row" style="animation-delay:.35s">
+            <span class="lbl">estado inicial</span><span class="fill"></span><span class="val">huérfano · sin perfil</span>
+          </div>
+          <div class="log-row" style="animation-delay:.65s">
+            <span class="lbl">integridad MAPI</span><span class="fill"></span><span class="ok">reparada ✓</span>
+          </div>
+          <div class="log-row" style="animation-delay:.95s">
+            <span class="lbl">conversión OST → PST</span><span class="fill"></span><span class="ok">completa ✓</span>
+          </div>
+          <div class="log-row" style="animation-delay:1.25s">
+            <span class="lbl">correos recuperados</span><span class="fill"></span><span class="val">48.213</span>
+          </div>
+          <div class="log-row" style="animation-delay:1.55s">
+            <span class="lbl">adjuntos</span><span class="fill"></span><span class="val">íntegros</span>
+          </div>
+        </div>
+        <div class="log-foot">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="1.5" stroke="currentColor" stroke-width="1.7"/><path d="M8 11V8a4 4 0 018 0v3" stroke="currentColor" stroke-width="1.7"/></svg>
+          entregado y verificado · cadena de custodia sellada
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero { padding-block: clamp(3rem, 7vw, 5.5rem); }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+  }
+  .hero-copy > * + * { margin-top: 1.4rem; }
+  .mono { font-family: var(--font-mono); font-size: 0.92em; color: var(--ink); }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+  .trust-strip {
+    list-style: none;
+    margin: 1.8rem 0 0;
+    padding: 1.3rem 0 0;
+    border-top: 1px solid var(--line);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem 1.8rem;
+  }
+
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-visual { order: -1; }
+  }
+</style>

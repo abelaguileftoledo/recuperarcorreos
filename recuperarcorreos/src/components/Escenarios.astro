@@ -1,0 +1,75 @@
+---
+const escenarios = [
+  {
+    tag: "PC formateado",
+    titulo: "Reinstalaron Windows y el correo desapareció",
+    texto:
+      "El técnico formateó sin respaldar el perfil de Outlook. Los correos vivían en un .ost local que quedó en el disco viejo o en una copia. En la mayoría de los casos, se rescata.",
+  },
+  {
+    tag: "Ex empleado",
+    titulo: "Se fue una persona y borraron su buzón",
+    texto:
+      "Necesitas su correspondencia por un tema legal, contable o de continuidad. Aunque el buzón ya no esté en Exchange o M365, el archivo o la copia suele existir.",
+  },
+  {
+    tag: "Migración M365",
+    titulo: "Migraron a Microsoft 365 y faltan carpetas",
+    texto:
+      "La migración se hizo a la rápida y quedaron correos, calendarios o carpetas fuera. Reconstruimos lo que no cruzó y lo reintegramos al buzón nuevo.",
+  },
+  {
+    tag: "Archivo corrupto",
+    titulo: "Outlook dice que el PST está dañado",
+    texto:
+      "Un .pst que crece sin control, un corte de luz, un disco con sectores malos. La herramienta oficial de Microsoft no siempre alcanza; reparamos a nivel de estructura.",
+  },
+];
+---
+
+<section id="escenarios" class="section">
+  <div class="wrap">
+    <span class="eyebrow">Cuándo llamarnos</span>
+    <h2 class="sec-title">Si te pasó algo de esto, no borres nada todavía.</h2>
+    <p class="lead sec-sub">
+      Cada acción sobre el disco puede sobrescribir lo que aún se puede recuperar.
+      Estos son los casos que resolvemos casi todas las semanas.
+    </p>
+
+    <div class="grid">
+      {escenarios.map((e) => (
+        <article class="card esc">
+          <span class="esc-tag">{e.tag}</span>
+          <h3>{e.titulo}</h3>
+          <p>{e.texto}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .sec-title { max-width: 20ch; }
+  .sec-sub { margin-top: 1rem; max-width: 58ch; }
+  .grid {
+    margin-top: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.1rem;
+  }
+  .esc h3 { margin: 0.7rem 0 0.5rem; }
+  .esc p { color: var(--slate); font-size: 0.96rem; }
+  .esc-tag {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--amber);
+    background: var(--amber-wash);
+    padding: 0.25rem 0.55rem;
+    border-radius: 3px;
+  }
+  @media (max-width: 720px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>

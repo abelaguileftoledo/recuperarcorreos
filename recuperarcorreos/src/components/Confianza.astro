@@ -1,0 +1,83 @@
+---
+const puntos = [
+  {
+    titulo: "Reserva total sobre tu correspondencia",
+    texto:
+      "Trabajamos con acuerdo de confidencialidad. Tu correo es privado: no se lee, no se comparte y no se conserva más allá de la entrega.",
+    icon: "shield",
+  },
+  {
+    titulo: "Borrado certificado al terminar",
+    texto:
+      "Una vez que confirmas que recibiste todo, eliminamos de forma segura cualquier copia que haya quedado de tu material.",
+    icon: "erase",
+  },
+  {
+    titulo: "Si no se puede recuperar, no cobramos",
+    texto:
+      "El diagnóstico es sin costo. Si tras evaluarlo el correo no es recuperable, te lo decimos y no pagas por el intento.",
+    icon: "check",
+  },
+  {
+    titulo: "17 años de infraestructura real",
+    texto:
+      "Exchange, Active Directory y correo corporativo en banca y minería. No es un software genérico: es alguien que entiende cómo se guarda y se pierde el correo.",
+    icon: "clock",
+  },
+];
+
+const icons = {
+  shield: '<path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>',
+  erase: '<path d="M5 15l6-6 5 5-4 4H8l-3-3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M11 9l4-4 5 5-4 4" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M4 20h9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>',
+  check: '<circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.6"/><path d="M8.5 12l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>',
+  clock: '<circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>',
+};
+---
+
+<section id="confianza" class="section dark">
+  <div class="wrap">
+    <span class="eyebrow eyebrow-light">Por qué confiar</span>
+    <h2 class="sec-title">Vas a entregar años de correo privado. Eso se cuida.</h2>
+    <p class="lead sec-sub">
+      La diferencia entre un programa que instalas a ciegas y este servicio es
+      simple: acá hay una persona responsable, con nombre y reglas claras.
+    </p>
+
+    <div class="grid">
+      {puntos.map((p) => (
+        <article class="card conf">
+          <span class="conf-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" set:html={icons[p.icon]} />
+          </span>
+          <h3>{p.titulo}</h3>
+          <p>{p.texto}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .eyebrow-light { color: #5fd0bc; }
+  .eyebrow-light::before { background: #5fd0bc; }
+  .sec-title { margin-top: 0.6rem; max-width: 24ch; }
+  .sec-sub { margin-top: 1rem; max-width: 60ch; }
+  .grid {
+    margin-top: 2.6rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.1rem;
+  }
+  .conf h3 { margin: 0.9rem 0 0.5rem; }
+  .conf p { color: #9fb0ba; font-size: 0.95rem; }
+  .conf-icon {
+    display: inline-flex;
+    padding: 0.55rem;
+    border-radius: 6px;
+    background: rgba(95, 208, 188, 0.12);
+    color: #5fd0bc;
+  }
+  @media (max-width: 720px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>

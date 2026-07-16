@@ -1,0 +1,103 @@
+---
+const servicios = [
+  {
+    codigo: "OST → PST",
+    titulo: "Conversión de OST huérfano",
+    texto:
+      "Extraemos el correo de un archivo .ost que perdió su cuenta y lo dejamos en un .pst limpio que abre en cualquier Outlook.",
+  },
+  {
+    codigo: "PST",
+    titulo: "Reparación de PST dañado",
+    texto:
+      "Reconstruimos la estructura de archivos .pst corruptos o sobredimensionados, recuperando correos, carpetas y adjuntos.",
+  },
+  {
+    codigo: "EXCHANGE",
+    titulo: "Buzones huérfanos y borrados",
+    texto:
+      "Recuperamos correspondencia de buzones que ya no existen en el servidor, desde copias, EDB o respaldos.",
+  },
+  {
+    codigo: "M365",
+    titulo: "Rescate post-migración",
+    texto:
+      "Reintegramos correos, contactos y calendarios que quedaron fuera en una migración a Microsoft 365 o Google Workspace.",
+  },
+  {
+    codigo: "DISCO",
+    titulo: "Extracción desde disco",
+    texto:
+      "Ubicamos y rescatamos perfiles de correo en discos formateados, dañados o de equipos dados de baja.",
+  },
+  {
+    codigo: "EXPORT",
+    titulo: "Exportación y entrega ordenada",
+    texto:
+      "Te entregamos el correo en el formato que necesitas — PST, EML o buzón montado — verificado y listo para usar.",
+  },
+];
+---
+
+<section id="servicios" class="section serv-sec">
+  <div class="wrap">
+    <span class="eyebrow">Qué recuperamos</span>
+    <h2 class="sec-title">Trabajo de recuperación, no venta de licencias.</h2>
+
+    <div class="grid">
+      {servicios.map((s) => (
+        <article class="serv">
+          <span class="serv-code">{s.codigo}</span>
+          <h3>{s.titulo}</h3>
+          <p>{s.texto}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .serv-sec { background: var(--paper-2); border-block: 1px solid var(--line); }
+  .sec-title { margin-top: 0.6rem; max-width: 22ch; }
+  .grid {
+    margin-top: 2.6rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .serv {
+    padding: 1.6rem;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--paper-2);
+    transition: background .18s ease;
+  }
+  .serv:hover { background: #fafcfb; }
+  .serv h3 { margin: 0.7rem 0 0.5rem; }
+  .serv p { color: var(--slate); font-size: 0.94rem; }
+  .serv-code {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--teal-ink);
+    background: var(--teal-wash);
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+  }
+  /* Bordes de la grilla */
+  .grid .serv:nth-child(3n) { border-right: 0; }
+  .grid .serv:nth-child(n+4) { }
+
+  @media (max-width: 860px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+    .grid .serv:nth-child(3n) { border-right: 1px solid var(--line); }
+    .grid .serv:nth-child(2n) { border-right: 0; }
+  }
+  @media (max-width: 560px) {
+    .grid { grid-template-columns: 1fr; }
+    .serv { border-right: 0 !important; }
+  }
+</style>

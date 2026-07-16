@@ -1,0 +1,77 @@
+---
+import { site, whatsappLink } from "../config/site";
+const year = new Date().getFullYear();
+---
+
+<footer class="ftr">
+  <div class="wrap ftr-inner">
+    <div class="ftr-brand">
+      <span class="ftr-name">recuperar<strong>correos</strong>.cl</span>
+      <p class="ftr-tag">
+        Rescate de correo OST, PST, buzones huérfanos y migraciones M365.
+        Servicio confidencial en {site.ciudad}, {site.pais}.
+      </p>
+    </div>
+
+    <div class="ftr-links">
+      <a href="#servicios">Servicios</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#confianza">Confianza</a>
+      <a href="#faq">Preguntas</a>
+      <a href={whatsappLink} target="_blank" rel="noopener">WhatsApp</a>
+      <a href={`mailto:${site.email}`}>{site.email}</a>
+    </div>
+  </div>
+
+  <div class="wrap ftr-legal">
+    <span>© {year} {site.nombre}</span>
+    <span>Diagnóstico sin costo · Confidencialidad garantizada</span>
+  </div>
+</footer>
+
+<style>
+  .ftr {
+    background: var(--ink);
+    color: #9fb0ba;
+    padding-top: 3rem;
+  }
+  .ftr-inner {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2rem;
+    padding-bottom: 2.2rem;
+    border-bottom: 1px solid #2c3a46;
+  }
+  .ftr-name {
+    font-family: var(--font-mono);
+    font-size: 1.05rem;
+    color: #cdd6dd;
+  }
+  .ftr-name strong { color: #fff; font-weight: 600; }
+  .ftr-tag {
+    margin-top: 0.7rem;
+    font-size: 0.9rem;
+    max-width: 44ch;
+    line-height: 1.55;
+  }
+  .ftr-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: start;
+    gap: 0.8rem 1.6rem;
+    font-size: 0.92rem;
+  }
+  .ftr-links a:hover { color: #fff; }
+  .ftr-legal {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    padding-block: 1.4rem;
+    font-size: 0.8rem;
+    color: #6b7a85;
+  }
+  @media (max-width: 700px) {
+    .ftr-inner { grid-template-columns: 1fr; }
+  }
+</style>
