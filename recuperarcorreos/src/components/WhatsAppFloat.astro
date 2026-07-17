@@ -1,0 +1,90 @@
+---
+import { whatsappLink } from "../config/site";
+---
+
+<a
+  href={whatsappLink}
+  class="wa-float"
+  target="_blank"
+  rel="noopener"
+  aria-label="Escríbeme por WhatsApp"
+>
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M12 2a10 10 0 00-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1012 2zm0 1.8a8.2 8.2 0 016.5 13.2 8.2 8.2 0 01-10.6 1.9l-.3-.2-2.9.8.8-2.8-.2-.3A8.2 8.2 0 0112 3.8zm-3 3.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.2 2.4.9 2.9.7 3.4.7.5-.1 1.6-.7 1.9-1.4.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3l-2-1c-.3-.1-.5-.2-.7.1l-.7 1c-.1.2-.3.2-.5.1-.3-.1-1.2-.5-2.3-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5v-.5c0-.1-.7-1.7-.9-2.3-.2-.5-.4-.5-.6-.5z"/>
+  </svg>
+  <span class="wa-tip">Escríbeme</span>
+</a>
+
+<style>
+  .wa-float {
+    position: fixed;
+    right: 1.4rem;
+    bottom: 1.4rem;
+    z-index: 90;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #1eb355;
+    color: #fff;
+    box-shadow: 0 10px 28px -8px rgba(30, 179, 85, 0.6), 0 4px 10px rgba(23, 33, 43, 0.18);
+    transition: transform 0.16s ease, box-shadow 0.16s ease, width 0.22s ease, border-radius 0.22s ease;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .wa-float:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px -8px rgba(30, 179, 85, 0.7), 0 6px 14px rgba(23, 33, 43, 0.22);
+  }
+
+  .wa-tip {
+    max-width: 0;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.95rem;
+    opacity: 0;
+    transition: max-width 0.22s ease, opacity 0.18s ease, margin 0.22s ease;
+  }
+
+  /* Al pasar el mouse, se expande y muestra el texto (solo en desktop) */
+  @media (hover: hover) and (min-width: 720px) {
+    .wa-float:hover {
+      width: auto;
+      padding: 0 1.4rem 0 1.1rem;
+      border-radius: 30px;
+    }
+    .wa-float:hover .wa-tip {
+      max-width: 140px;
+      opacity: 1;
+      margin-left: 0.55rem;
+    }
+  }
+
+  /* Pulso sutil para llamar la atención sin ser molesto */
+  .wa-float::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: 0 0 0 0 rgba(30, 179, 85, 0.5);
+    animation: waPulse 2.8s ease-out infinite;
+  }
+
+  @keyframes waPulse {
+    0% { box-shadow: 0 0 0 0 rgba(30, 179, 85, 0.45); }
+    70% { box-shadow: 0 0 0 14px rgba(30, 179, 85, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(30, 179, 85, 0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wa-float::before { animation: none; }
+    .wa-float { transition: none; }
+  }
+
+  @media (max-width: 719px) {
+    .wa-float { right: 1rem; bottom: 1rem; width: 54px; height: 54px; }
+  }
+</style>
